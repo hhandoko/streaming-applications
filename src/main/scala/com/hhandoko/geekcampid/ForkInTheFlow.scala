@@ -48,7 +48,6 @@ object ForkInTheFlow extends App {
       val par  = builder.add(Partition[String](2, p))
       val con  = builder.add(Merge[String](2))
 
-      par.in
       par.out(0) ~> trf ~> con.in(0)
       par.out(1)        ~> con.in(1)
 

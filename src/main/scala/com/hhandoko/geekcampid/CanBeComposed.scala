@@ -49,7 +49,7 @@ object CanBeComposed extends App {
     case i              => i
   }
   val nestedFlow    = prefixFlow.via(suffixFlow).via(uppercaseFlow)
-  val nestedSink    = nestedFlow.toMat(printlnSink)(Keep.right)
+  val nestedSink    = nestedFlow.to(printlnSink)
 
   nestedSource
     .to(nestedSink)
